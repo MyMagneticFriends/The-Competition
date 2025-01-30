@@ -5,12 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us</title>
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; }
+        @import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
+
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+            color: grey;
+            font-family: 'Arial', sans-serif;
+            position: relative;
+            font-size: 150%; /* Increase overall font size by 50% */
+        }
+
+        h1 {
+            font-size: 6rem; /* Increased font size by 50% */
+            text-transform: uppercase;
+            letter-spacing: 7.5px; /* Increased letter spacing */
+            animation: flicker 4s infinite;
+            margin-bottom: 75px; /* Increased margin */
+            z-index: 2; /* Ensure heading is above the image */
+        }
+
     </style>
 </head>
 <body>
     <h1>About My Magnetic Friends</h1>
-    <p>Welcome to the About page of My Magnetic Friends!</p>
+    <p>Started as two inebriated friends just jamming on guitars they could barely play. We wanted to make this a project open to anyone with a love for music. Dosen't matter your ability.</p>
     <a href="index.html">Go Back to Home</a>
 </body>
 
