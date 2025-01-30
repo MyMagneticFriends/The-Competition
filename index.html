@@ -129,18 +129,20 @@
                 text-shadow: none;
             }
         }
+        /* Angled Text */
         .angled-text {
             position: absolute;
-            top: 60%; /* Adjust to position around the image */
+            top: 55%;
             left: 50%;
-            transform: translateX(-50%) rotate(-20deg); /* Rotate at an angle */
+            transform: translate(-50%, -50%) rotate(-20deg);
             font-size: 2rem;
             font-family: 'Rock Salt', cursive;
             font-weight: bold;
             color: grey;
-            z-index: 2; /* Ensures it's above the image */
+            z-index: 3;
             text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.3);
-    }
+            white-space: nowrap;
+        }
     </style>
 </head>
 
