@@ -26,7 +26,7 @@
         }
 
         h1 span {
-            color: white; /* Keeps "ABOUT" always visible */
+            color: white;
             text-shadow: 0 0 5px white, 0 0 10px white;
         }
 
@@ -62,14 +62,21 @@
             margin: 0 auto;
             font-size: 1.3rem;
             line-height: 1.8;
+            position: relative;
         }
 
-        .smiley {
-            font-size: 5rem;
-            display: block;
-            transform: rotate(180deg);
-            color: #FFD700; /* Yellow Nirvana-style */
-            margin-top: 30px;
+        .signature {
+            position: absolute;
+            bottom: -20px;
+            right: 0;
+            width: 100px; /* Small signature size */
+            height: auto;
+        }
+
+        .ascii-dmd {
+            font-size: 2rem;
+            color: white;
+            margin-top: 20px;
         }
 
         nav {
@@ -88,21 +95,27 @@
     
     <div class="content-wrapper">
         <p>  
-            We’ve been friends since we were teenagers, back when we thought learning piano scales would make us cooler. Spoiler alert: it didn’t.  
+            We’ve been friends since our teenage years, back when our biggest worry was which band t-shirt to wear and whether *anyone* would care about our questionable music taste.  
             <br><br>
-            While other kids were shredding guitars and dreaming of rock stardom, we were stuck preparing for piano exams, playing classical pieces instead of the grunge and indie anthems we actually loved.  
+            While the cool kids were thrashing guitars, we were locked in a room playing scales for piano exams—because nothing screams “rebellion” like nailing a C major arpeggio.  
             <br><br>
-            Fast forward to our late forties, and we finally decided to do something about it. We picked up guitars, cracked open some beers, and tried to recapture the musical energy we never had.  
+            Years later, we finally saw the light and picked up guitars, fueled by the reckless enthusiasm of men who should probably know better.  
             <br><br>
-            That’s when POK—the name, not the guy—threw us a curveball. Turns out, POK are his actual initials from birth, something we only discovered after decades of knowing him. He’d been using a different name his entire life. Talk about an identity crisis!  
+            One night, something unexpected happened—POK played a song he had written himself. And it was *good*. Like, suspiciously good. The kind of song that makes you wonder if he had been hiding secret musical abilities all along.  
             <br><br>
-            Around the same time, life threw him another plot twist—his wife left, taking the kids with her. Suddenly, he had a lot of free time. What better way to fill the void than drowning in guitar riffs and songwriting?  
+            I decided we had to record it. Simple, right? Just hit record and boom—instant masterpiece. **Six months later**, we were knee-deep in microphone experiments, watching YouTube tutorials at 2 AM, and arguing over whether distortion made everything sound *better* or just *louder*.  
             <br><br>
-            So here we are, two grown men jamming like reckless teens, making up for lost time. *My Magnetic Friends* is the product of that madness—raw, imperfect, but full of heart.  
+            And so, *My Magnetic Friends* was born. Two guys making music, making noise, and making up for lost time.  
         </p>
+
+        <!-- Signature Image -->
+        <img src="img/sm1.png" alt="Signature" class="signature">
     </div>
 
-    <span class="smiley">☓‿☓👅</span> <!-- Upside-down Nirvana-style smiley face with tongue -->
+    <!-- ASCII-style DMD -->
+    <div class="ascii-dmd">
+        ( ͡° ͜ʖ ͡°) , , [ D M D ] , , ( ͡° ͜ʖ ͡°)
+    </div>
 
     <nav>
         <a href="index.html">Home</a> |
