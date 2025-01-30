@@ -29,12 +29,40 @@
             margin-bottom: 75px; /* Increased margin */
             z-index: 2; /* Ensure heading is above the image */
         }
-
+        @keyframes flicker {
+            /* Flickering */
+            0%, 5%, 7%, 9%, 11%, 13%, 15%, 25% {
+                opacity: 1;
+                text-shadow: 
+                    0 0 2px #fff,
+                    0 0 4px #fff,
+                    0 0 8px #ff0040,
+                    0 0 16px #ff0040,
+                    0 0 32px #ff0040,
+                    0 0 64px #ff0040,
+                    0 0 128px #ff0040;
+            }
+                /* Blank during flickering */
+            6%, 8%, 10%, 12%, 14% {
+                opacity: 0;
+                text-shadow: none;
+            }
+                /* Completely blank after flickering */
+            26%, 100% {
+                opacity: 0;
+                text-shadow: none;
+            }
     </style>
 </head>
 <body>
     <h1>About My Magnetic Friends</h1>
-    <p>Started as two inebriated friends just jamming on guitars they could barely play. We wanted to make this a project open to anyone with a love for music. Dosen't matter your ability.</p>
+    <p>I had been travelling out to POK's house for months, we both had taken up guitar together and were spending our Friday nights getting inebriated while trying to capture some of the fun we expected jamming to be, that we never got to experience as teenagers whose only musical talent was playing the piano.
+         . So POK has been getting way more practise than me due to his ammount of free time. I was still strugglingly with guitar strings hurting my fingers.
+        Anyway he puts himself out there and plays a song he wrote himself. And boy was it good, one of those songs you hear and feel some emotion listening to it.
+    So I decided there that I had to get a recording of it and get it out there. So I spent the next 6 months researching music production while POK added to his catalogue of songs.
+A niche song writing ability I never knew he had. And every Friday we would experiment with mics and amps trying to get recordings done of a decent quality.
+
+DMD</p>
     <a href="index.html">Go Back to Home</a>
 </body>
 
