@@ -129,6 +129,18 @@
                 text-shadow: none;
             }
         }
+        .angled-text {
+            position: absolute;
+            top: 60%; /* Adjust to position around the image */
+            left: 50%;
+            transform: translateX(-50%) rotate(-20deg); /* Rotate at an angle */
+            font-size: 2rem;
+            font-family: 'Rock Salt', cursive;
+            font-weight: bold;
+            color: grey;
+            z-index: 2; /* Ensures it's above the image */
+            text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.3);
+    }
     </style>
 </head>
 
@@ -150,8 +162,8 @@
         <img src="img/ManM.png" alt="Glitch Image">
     </div>
 
-    <!-- Second Heading -->
-    <h3>Brought to you by <span style="font-weight: bold;">Seizure Stains</span></h3>
+    <!-- Angled Text -->
+    <h3 class="angled-text">Brought to you by Seizure Stains</h3>
 
     <!-- Audio Element -->
     <audio id="audioPlayer">
