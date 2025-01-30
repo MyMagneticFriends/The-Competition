@@ -6,6 +6,7 @@
     <title>About Us</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap');
 
         body {
             margin: 0;
@@ -18,19 +19,28 @@
             color: grey;
             font-family: 'Arial', sans-serif;
             position: relative;
-            font-size: 150%; /* Increase overall font size by 50% */
+            font-size: 150%;
+            text-align: center;
         }
 
         h1 {
-            font-size: 6rem; /* Increased font size by 50% */
+            font-size: 6rem;
             text-transform: uppercase;
-            letter-spacing: 7.5px; /* Increased letter spacing */
-            animation: flicker 4s infinite;
-            margin-bottom: 75px; /* Increased margin */
-            z-index: 2; /* Ensure heading is above the image */
+            letter-spacing: 7.5px;
+            margin-bottom: 75px;
+            z-index: 2;
         }
+
+        h1 span {
+            color: white; /* Keeps "ABOUT" always visible */
+            text-shadow: 0 0 5px white, 0 0 10px white;
+        }
+
+        h1 .flicker {
+            animation: flicker 4s infinite;
+        }
+
         @keyframes flicker {
-            /* Flickering */
             0%, 5%, 7%, 9%, 11%, 13%, 15%, 25% {
                 opacity: 1;
                 text-shadow: 
@@ -42,35 +52,63 @@
                     0 0 64px #ff0040,
                     0 0 128px #ff0040;
             }
-                /* Blank during flickering */
             6%, 8%, 10%, 12%, 14% {
                 opacity: 0;
                 text-shadow: none;
             }
-                /* Completely blank after flickering */
             26%, 100% {
                 opacity: 0;
                 text-shadow: none;
             }
+        }
+
+        p {
+            max-width: 700px;
+            text-align: justify;
+            padding: 20px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.4rem;
+            line-height: 1.8;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
+        }
+
+        nav {
+            position: absolute;
+            bottom: 20px;
+        }
+
+        a {
+            color: grey;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
     </style>
 </head>
 <body>
-    <h1>About My Magnetic Friends</h1>
-    <p>I had been travelling out to POK's house for months, we both had taken up guitar together and were spending our Friday nights getting inebriated while trying to capture some of the fun we expected jamming to be, that we never got to experience as teenagers whose only musical talent was playing the piano.
-         . So POK has been getting way more practise than me due to his ammount of free time. I was still strugglingly with guitar strings hurting my fingers.
-        Anyway he puts himself out there and plays a song he wrote himself. And boy was it good, one of those songs you hear and feel some emotion listening to it.
-    So I decided there that I had to get a recording of it and get it out there. So I spent the next 6 months researching music production while POK added to his catalogue of songs.
-A niche song writing ability I never knew he had. And every Friday we would experiment with mics and amps trying to get recordings done of a decent quality.
+    <h1><span>ABOUT</span> <span class="flicker">My Magnetic Friends</span></h1>
+    
+    <p>  
+        So there I was, religiously making my way over to POK's house every Friday, guitars in hand, pretending we were rockstars and conveniently ignoring how much our fingers hurt.  
+        <br><br>
+        We had never been the "cool kids with a band" in school—our musical talents back then maxed out at some aggressively enthusiastic piano playing.  
+        <br><br>
+        POK, having more free time (and apparently a secret songwriting superpower), had been making way more progress than me. One fateful night, he played an original song that was actually *good*. Like, "why-is-this-not-on-the-radio" good.  
+        <br><br>
+        So naturally, I did what any good friend would do—I *stole* his talent. Not really, but I did decide that this needed to be recorded and shared with the world.  
+        <br><br>
+        Thus began a six-month odyssey of microphone experiments, accidental deafness, and my crash course in music production. Meanwhile, POK kept churning out songs like some kind of indie rock wizard.  
+        <br><br>
+        And that’s how "My Magnetic Friends" came to be—a chaotic, whiskey-fueled, guitar-infested passion project that started as two guys trying (and failing) to jam properly.  
+    </p>
+    
+    <p style="font-size: 2rem;">(╯°□°)╯︵ ☹</p>
 
-DMD</p>
-    <a href="index.html">Go Back to Home</a>
+    <nav>
+        <a href="index.html">Home</a> |
+        <a href="about.html">About</a> |
+        <a href="contact.html">Contact</a>
+    </nav>
 </body>
-
-<nav>
-    <a href="index.html">Home</a> |
-    <a href="about.html">About</a> |
-    <a href="contact.html">Contact</a>
-</nav>
-
-
 </html>
