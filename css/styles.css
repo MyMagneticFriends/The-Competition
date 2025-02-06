@@ -1,6 +1,57 @@
 /* Import Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+
+/* Content Wrapper */
+.content-wrapper {
+    max-width: 50%;
+    margin: 0 auto; /* No extra spacing at the top */
+    padding: 30px;
+    position: relative;
+    z-index: -1; /* Send content behind the heading */
+}
+
+/* Styled Paragraph */
+.content-wrapper p {
+    font-family: 'Special Elite', cursive;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #d3d3d3;
+    text-align: justify;
+    padding: 10px;
+    margin-top: 10px; /* Ensures it starts just below the h1 */
+}
+
+/* Move Signature to Bottom Right of Content */
+.signature {
+    position: absolute;
+    bottom: -20px;
+    right: 10px;
+    width: 120px;
+    opacity: 0.8;
+}
+
+/* Responsive Fix */
+@media (max-width: 768px) {
+    .content-wrapper {
+        max-width: 80%;
+        padding: 20px;
+    }
+
+    .content-wrapper p {
+        font-size: 1rem;
+    }
+
+    .signature {
+        width: 100px;
+        bottom: -10px;
+        right: 5px;
+    }
+}
+
 
 /* Reset Margins & Box Sizing */
 * {
@@ -216,4 +267,65 @@ nav a:hover {
 .signature:hover {
     opacity: 1;
     transform: scale(1.1); /* Slightly enlarges on hover */
+}
+/* Center Email Section */
+.email-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px; /* Space below heading */
+    gap: 15px; /* Spacing between label and email */
+}
+
+/* Style the EMAIL Label (75% of H1 Size) */
+.email-label {
+    font-size: 2.5rem; /* Increase size to 75% of h1 */
+    font-weight: bold;
+    color: grey;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 
+        0 0 8px rgba(255, 255, 255, 0.3), 
+        0 0 16px rgba(255, 255, 255, 0.2),
+        0 0 32px rgba(255, 255, 255, 0.1); /* More subtle white glow */
+    animation: fadeIn 1.2s ease-in-out;
+}
+
+/* Style the Email Address */
+.email-address {
+    font-size: 1.8rem;
+    color: #bbb; /* Soft gray */
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    animation: fadeIn 1.5s ease-in-out;
+    cursor: pointer;
+}
+
+/* Make Email Clickable */
+.email-address:hover {
+    color: #ff0055;
+    text-shadow: 0 0 10px #ff0055;
+}
+
+/* Drop-off Animation When Clicked */
+.email-address.clicked {
+    animation: fallAway 1.37s ease-in forwards;
+}
+
+@keyframes fallAway {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100px) rotate(15deg);
+        opacity: 0;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }

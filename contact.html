@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact</title>
     <link rel="stylesheet" href="css/styles.css">
-    
+
 </head>
 <body class="extend">
+    
     <nav>
         <a href="index.html">Home</a> |
         <a href="catalog.html">Catalog</a> |
@@ -15,16 +16,24 @@
         <a href="about.html">About</a> |
         <a href="contact.html">Contact</a>
     </nav>
+
     <h1>
         <span>CONTACT</span> 
         <span class="flicker">My Magnetic Friends</span>
     </h1>
-</head>
-<body>
-    <h1>EMAIL</h1>
-    <p>MyMagneticFriends@gmail.com</p>
-    <a href="index.html">Go Back to Home</a>
+
+    <div class="email-container">
+        <span class="email-label">EMAIL</span>
+        <a href="mailto:MyMagneticFriends@Gmail.com" class="email-address" onclick="dropEmail()">MyMagneticFriends@Gmail.com</a>
+    </div>
+    
+    <script>
+        function dropEmail() {
+            document.querySelector('.email-address').classList.add('clicked');
+        }
+    </script>
+    
+
+
 </body>
-
-
 </html>
