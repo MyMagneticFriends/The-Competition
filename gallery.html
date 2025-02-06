@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gallery</title>
     <link rel="stylesheet" href="css/styles.css">
-    
 </head>
 <body class="extend">
 
@@ -16,53 +15,74 @@
         <a href="about.html">About</a> |
         <a href="contact.html">Contact</a>
     </nav>
+
     <h1>
         <span>GALLERY</span> 
         <span class="flicker">My Magnetic Friends</span>
     </h1>
 
-    <!-- Fullscreen Image Viewer -->
+    <!-- Enlarged Image Viewer -->
     <div class="fullscreen-container" id="fullscreen">
-        <span class="close-btn" onclick="closeImage()">×</span>
+        <button class="nav-btn left" onclick="prevImage()">&#10094;</button>
         <img id="fullscreen-img" src="" alt="Full Image">
+        <button class="nav-btn right" onclick="nextImage()">&#10095;</button>
+        <span class="close-btn" onclick="closeImage()">×</span>
     </div>
 
-    <!-- Scrolling Gallery -->
-    <div class="gallery-container">
-        <div class="gallery" id="gallery"></div>
+    <!-- Scrollable Image Gallery -->
+    <div class="gallery-wrapper">
+        <button class="scroll-btn left" onclick="scrollGallery(-1)">&#10094;</button>
+        <div class="gallery-container">
+            <div class="gallery" id="gallery"></div>
+        </div>
+        <button class="scroll-btn right" onclick="scrollGallery(1)">&#10095;</button>
     </div>
 
     <script>
-        // Function to load images from the gallery folder
+        let images = [
+            "image1.png", "image2.png", "image3.png", "image4.png", 
+            "image5.png"
+        ];
+        let currentIndex = 0;
+
         document.addEventListener("DOMContentLoaded", function () {
             let galleryFolder = "img/gallery/";
             let galleryDiv = document.getElementById("gallery");
 
-            // Replace with actual filenames or fetch dynamically if possible
-            let images = [
-                "image1.png", "image2.png", "image3.png", "image4.png", 
-                "image5.png"
-            ];
-
-            images.forEach(image => {
+            images.forEach((image, index) => {
                 let img = document.createElement("img");
                 img.src = galleryFolder + image;
                 img.alt = "Gallery Image";
-                img.onclick = function () { openImage(img.src); };
+                img.onclick = function () { openImage(index); };
                 galleryDiv.appendChild(img);
             });
         });
 
-        // Function to open the clicked image in fullscreen mode
-        function openImage(src) {
-            document.getElementById("fullscreen-img").src = src;
+        function openImage(index) {
+            currentIndex = index;
+            document.getElementById("fullscreen-img").src = "img/gallery/" + images[currentIndex];
             document.getElementById("fullscreen").classList.add("active");
         }
 
-        // Function to close the fullscreen image viewer
         function closeImage() {
             document.getElementById("fullscreen").classList.remove("active");
         }
+
+        function prevImage() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            document.getElementById("fullscreen-img").src = "img/gallery/" + images[currentIndex];
+        }
+
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % images.length;
+            document.getElementById("fullscreen-img").src = "img/gallery/" + images[currentIndex];
+        }
+
+        function scrollGallery(direction) {
+            let container = document.querySelector(".gallery-container");
+            container.scrollLeft += direction * 200; 
+        }
     </script>
+
 </body>
 </html>

@@ -74,7 +74,8 @@ h2 {
 
 /* Centered Glitch Image (Always Visible) */
 .glitch {
-    position: relative;
+    position: absolute;
+    bottom: 1px;
     width: 400px; /* Make sure the base size is correct */
     height: auto;
     cursor: pointer;
@@ -83,6 +84,8 @@ h2 {
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 /* Ensure Base Image is Always Visible */
@@ -102,29 +105,28 @@ h2 {
 
 /* When Activated, Make Glitched Image 20% Bigger */
 .glitch-active {
-    transform: scale(1.2); /* Enlarges the glitched image */
+    transform: scale(1.1.5); /* Enlarges the glitched image */
 }
 
 /* Show and Animate Glitch Layers */
 .glitch-active img.glitch-layer {
     visibility: visible;
-    opacity: 1;
+    opacity: 0.6;
     position: absolute;
     width: 100%;
     height: auto;
     top: 0;
     left: 0;
-    animation: glitch-effect 0.2s infinite;
+    animation: glitch-effect 0.1s infinite;
 }
 
 /* Glitch Effect (Lateral Movements Only) */
 @keyframes glitch-effect {
-    0% { transform: translateX(0); filter: hue-rotate(0deg); }
-    20% { transform: translateX(-10px); filter: hue-rotate(30deg); }
-    40% { transform: translateX(10px); filter: hue-rotate(60deg); }
-    60% { transform: translateX(-15px); filter: hue-rotate(90deg); }
-    80% { transform: translateX(15px); filter: hue-rotate(120deg); }
-    100% { transform: translateX(0); filter: hue-rotate(150deg); }
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(-2px, 2px); }
+    50% { transform: translate(2px, -2px); }
+    75% { transform: translate(-2px, -2px); }
+    100% { transform: translate(2px, 2px); }
 }
 
 /* Flicker Effect */
