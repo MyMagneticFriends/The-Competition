@@ -1,6 +1,15 @@
-<style>
+/* Import Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
 
+/* Reset Margins & Box Sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
 body {
     margin: 0;
     height: 100vh;
@@ -12,95 +21,114 @@ body {
     color: grey;
     font-family: 'Arial', sans-serif;
     position: relative;
-    font-size: 150%; /* Increase overall font size by 50% */
+    font-size: 150%;
 }
 
-h1 {
-    font-size: 6rem; /* Increased font size by 50% */
+/* Heading Styling home (used on index)*/
+.home h1 {
+    font-size: 6rem;
     text-transform: uppercase;
-    letter-spacing: 7.5px; /* Increased letter spacing */
+    letter-spacing: 7.5px;
     animation: flicker 4s infinite;
-    margin-bottom: 75px; /* Increased margin */
-    z-index: 2; /* Ensure heading is above the image */
+    margin-bottom: 75px;
+    z-index: 2;
 }
 
+/* Move H1 Higher on About Page */
+.extend h1 {
+    position: absolute;
+    top: 100px; /* Adjust as needed */
+    font-size: 6rem;
+    text-transform: uppercase;
+    letter-spacing: 7.5px;
+    margin-bottom: 75px;
+    z-index: 2;
+    /* REMOVE THIS LINE */
+    /* animation: flicker 4s infinite; */
+}
+
+/* Keep "ABOUT" Solid - No Flicker */
+.extend h1 span:first-child {
+    color: grey; /* Solid color */
+    text-shadow: 0 0 5px white, 0 0 10px white; /* Add subtle glow */
+    animation: none !important; /* Forces no flicker */
+}
+
+/* Apply Flicker Effect Only to "My Magnetic Friends" */
+.extend h1 .flicker {
+    animation: flicker 4s infinite;
+}
+
+/* Subtitle */
 h2 {
-    font-size: 3rem; /* Increased font size by 50% */
+    font-size: 3rem;
     color: grey;
     font-family: 'Rock Salt', cursive;
-    font-weight: bold; /* Make "Seizure Stains" bold */
+    font-weight: bold;
     position: absolute;
-    top: 50%; /* Position it in the middle of the page */
-    z-index: 2; /* Ensure it appears in front of the image */
+    top: 50%;
+    z-index: 2;
     text-align: center;
     transform: translateY(-50%);
 }
 
+/* Centered Glitch Image (Always Visible) */
 .glitch {
     position: relative;
-    width: 450px; /* Increased width by 50% */
+    width: 400px; /* Make sure the base size is correct */
     height: auto;
-    cursor: pointer; /* Indicates that the image is clickable */
-    z-index: 1; /* Ensure image is behind the heading */
+    cursor: pointer;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
 }
 
+/* Ensure Base Image is Always Visible */
 .glitch img {
+    width: 100%;
+    height: auto;
+    position: relative;
+    display: block;
+}
+
+/* Glitch Layers (Hidden by Default) */
+.glitch img.glitch-layer {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+}
+
+/* When Activated, Make Glitched Image 20% Bigger */
+.glitch-active {
+    transform: scale(1.2); /* Enlarges the glitched image */
+}
+
+/* Show and Animate Glitch Layers */
+.glitch-active img.glitch-layer {
+    visibility: visible;
+    opacity: 1;
     position: absolute;
     width: 100%;
     height: auto;
     top: 0;
     left: 0;
-    animation: glitch-scanline 2s infinite;
+    animation: glitch-effect 0.2s infinite;
 }
 
-.glitch img:nth-child(2) {
-    opacity: 0.7;
-    animation: glitch-scanline 2s infinite 0.1s;
+/* Glitch Effect (Lateral Movements Only) */
+@keyframes glitch-effect {
+    0% { transform: translateX(0); filter: hue-rotate(0deg); }
+    20% { transform: translateX(-10px); filter: hue-rotate(30deg); }
+    40% { transform: translateX(10px); filter: hue-rotate(60deg); }
+    60% { transform: translateX(-15px); filter: hue-rotate(90deg); }
+    80% { transform: translateX(15px); filter: hue-rotate(120deg); }
+    100% { transform: translateX(0); filter: hue-rotate(150deg); }
 }
 
-.glitch img:nth-child(3) {
-    opacity: 0.5;
-    animation: glitch-scanline 2s infinite 0.2s;
-}
-
-@keyframes glitch-scanline {
-    0% {
-        transform: translate(0);
-    }
-    10% {
-        transform: translate(-7.5px, 0); /* Increased glitch displacement */
-    }
-    20% {
-        transform: translate(7.5px, 0); /* Increased glitch displacement */
-    }
-    30% {
-        transform: translate(-7.5px, 0); /* Increased glitch displacement */
-    }
-    40% {
-        transform: translate(7.5px, 0); /* Increased glitch displacement */
-    }
-    50% {
-        transform: translate(0);
-    }
-    60% {
-        transform: translate(-7.5px, 0); /* Increased glitch displacement */
-    }
-    70% {
-        transform: translate(7.5px, 0); /* Increased glitch displacement */
-    }
-    80% {
-        transform: translate(-7.5px, 0); /* Increased glitch displacement */
-    }
-    90% {
-        transform: translate(7.5px, 0); /* Increased glitch displacement */
-    }
-    100% {
-        transform: translate(0);
-    }
-}
-
+/* Flicker Effect */
 @keyframes flicker {
-    /* Flickering */
     0%, 5%, 7%, 9%, 11%, 13%, 15%, 25% {
         opacity: 1;
         text-shadow: 
@@ -112,29 +140,78 @@ h2 {
             0 0 64px #ff0040,
             0 0 128px #ff0040;
     }
-        /* Blank during flickering */
     6%, 8%, 10%, 12%, 14% {
         opacity: 0;
         text-shadow: none;
     }
-        /* Completely blank after flickering */
     26%, 100% {
         opacity: 0;
         text-shadow: none;
     }
 }
-/* Angled Text */
+
+/* Angled Text & Image (Sent to Back) */
 .angled-text {
     position: absolute;
-    top: 55%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) rotate(-20deg);
     font-size: 2rem;
     font-family: 'Rock Salt', cursive;
     font-weight: bold;
-    color: grey;
-    z-index: 3;
+    color: rgba(128, 128, 128, 0.3); /* Faded grey */
+    z-index: -1; /* Send to back */
     text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.3);
     white-space: nowrap;
 }
-</style>
+
+/* Style for the Image Behind Everything */
+.angled-text img {
+    width: 150px; /* Adjust size as needed */
+    height: auto;
+    opacity: 0.2; /* Make it blend into the background */
+}
+
+/* Navigation Bar */
+nav {
+    position: absolute; /* Fixes nav to the top */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: black; /* Background color */
+    padding: 15px 0;
+    text-align: center;
+}
+
+/* Navigation Links */
+nav a {
+    color: grey; /* Make text grey */
+    text-decoration: none; /* Remove underline */
+    font-size: 1.5rem; /* Adjust font size */
+    margin: 0 15px; /* Add spacing between links */
+    font-family: 'Arial', sans-serif;
+    text-transform: uppercase;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+nav a:hover {
+    color: white; /* Change to white when hovered */
+}
+
+/* Signature Image */
+.signature {
+    width: 100px; /* Adjust size as needed */
+    height: auto; /* Maintain aspect ratio */
+    position: absolute; /* Allows precise positioning */
+    bottom: 10px; /* Adjust distance from bottom */
+    right: 10px; /* Adjust distance from right */
+    opacity: 0.8; /* Slight transparency */
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* Hover Effect - Slight Brightness */
+.signature:hover {
+    opacity: 1;
+    transform: scale(1.1); /* Slightly enlarges on hover */
+}

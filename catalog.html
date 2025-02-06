@@ -4,92 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
-
-        body {
-            margin: 0;
-            padding: 50px;
-            background-color: black;
-            color: grey;
-            font-family: 'Oswald', sans-serif;
-            font-size: 150%;
-            text-align: center;
-        }
-
-        h1 {
-            font-size: 6rem;
-            text-transform: uppercase;
-            letter-spacing: 7.5px;
-            margin-bottom: 40px;
-        }
-
-        h1 span {
-            color: white;
-            text-shadow: 0 0 5px white, 0 0 10px white;
-        }
-
-        h1 .flicker {
-            animation: flicker 4s infinite;
-        }
-
-        @keyframes flicker {
-            0%, 5%, 7%, 9%, 11%, 13%, 15%, 25% {
-                opacity: 1;
-                text-shadow: 
-                    0 0 2px #fff,
-                    0 0 4px #fff,
-                    0 0 8px #ff0040,
-                    0 0 16px #ff0040,
-                    0 0 32px #ff0040,
-                    0 0 64px #ff0040,
-                    0 0 128px #ff0040;
-            }
-            6%, 8%, 10%, 12%, 14% {
-                opacity: 0;
-                text-shadow: none;
-            }
-            26%, 100% {
-                opacity: 0;
-                text-shadow: none;
-            }
-        }
-
-        .content-wrapper {
-            max-width: 900px;
-            text-align: left;
-            margin: 0 auto;
-            font-size: 1.3rem;
-            line-height: 1.8;
-            position: relative;
-        }
-
-        .signature {
-            position: absolute;
-            bottom: -20px;
-            right: 0;
-            width: 100px; /* Small signature size */
-            height: auto;
-        }
-
-        .ascii-dmd {
-            font-size: 2rem;
-            color: white;
-            margin-top: 20px;
-        }
-
-        nav {
-            margin-top: 40px;
-        }
-
-        a {
-            color: grey;
-            text-decoration: none;
-            font-size: 1.2rem;
-        }
-    </style>
+    <link rel="stylesheet" href="css/styles.css">
+   
 </head>
-<body>
-    <h1><span>CATALOG</span> <span class="flicker">My Magnetic Friends</span></h1>
+<body class="extend">
+    <nav>
+        <a href="index.html">Home</a> |
+        <a href="catalog.html">Catalog</a> |
+        <a href="gallery.html">Gallery</a> |
+        <a href="about.html">About</a> |
+        <a href="contact.html">Contact</a>
+    </nav>
+    <h1>
+        <span>CATALOG</span> 
+        <span class="flicker">My Magnetic Friends</span>
+    </h1>
 </head>

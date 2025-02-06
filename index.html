@@ -7,24 +7,24 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
-<nav>
-    <a href="index.html">Home</a> |
-    <a href="catalog.html">Catalog</a> |
-    <a href="gallery.html">Gallery</a> |
-    <a href="about.html">About</a> |
-    <a href="contact.html">Contact</a>
-</nav>
-
-<body>
+<body class="home">
 
     <!-- Title -->
     <h1>My Magnetic Friends</h1>
 
+    <nav>
+        <a href="index.html">Home</a> |
+        <a href="catalog.html">Catalog</a> |
+        <a href="gallery.html">Gallery</a> |
+        <a href="about.html">About</a> |
+        <a href="contact.html">Contact</a>
+    </nav>
+
     <!-- Glitch Image -->
-    <div class="glitch" onclick="playAudio()">
+    <div class="glitch" id="glitch-container" onclick="toggleGlitch()">
         <img src="img/ManM.png" alt="Glitch Image">
-        <img src="img/ManM.png" alt="Glitch Image">
-        <img src="img/ManM.png" alt="Glitch Image">
+        <img src="img/ManM.png" alt="Glitch Image" class="glitch-layer">
+        <img src="img/ManM.png" alt="Glitch Image" class="glitch-layer">
     </div>
 
     <!-- Angled Text -->
@@ -36,12 +36,30 @@
         Your browser does not support the audio element.
     </audio>
 
+    <!-- JavaScript -->
     <script>
-        function playAudio() {
+        function toggleGlitch() {
+            var glitchContainer = document.getElementById("glitch-container");
             var audio = document.getElementById("audioPlayer");
-            audio.play();
+    
+            if (glitchContainer.classList.contains("glitch-active")) {
+                // Stop the glitch effect
+                glitchContainer.classList.remove("glitch-active");
+                audio.pause();
+                audio.currentTime = 0;
+            } else {
+                // Start the glitch effect
+                glitchContainer.classList.add("glitch-active");
+                audio.play();
+    
+                // Stop glitch effect when audio ends
+                audio.onended = function() {
+                    glitchContainer.classList.remove("glitch-active");
+                };
+            }
         }
     </script>
+    
 
 </body>
 </html>
