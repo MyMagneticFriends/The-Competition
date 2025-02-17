@@ -3,9 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact</title>
+    <title>Catalog</title>
     <link rel="stylesheet" href="css/styles.css">
-   
+    <style>
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .flicker {
+            animation: blink 1s infinite;
+        }
+
+        h1 {
+            margin-bottom: 50px;
+        }
+
+        .catalog-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 200px;
+            padding-top: 70px;
+        }
+
+        .album {
+            text-align: center;
+        }
+
+        .album img {
+            width: 433px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .album-info {
+            margin-top: 10px;
+            font-size: 20px;
+            color: lightgrey;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body class="extend">
     <nav>
@@ -15,8 +55,21 @@
         <a href="about.html">About</a> |
         <a href="contact.html">Contact</a>
     </nav>
+    
     <h1>
-        <span>CATALOG</span> 
+        <span>CATALOG</span>
         <span class="flicker">My Magnetic Friends</span>
     </h1>
-</head>
+    
+    <div class="catalog-container">
+        <div class="album">
+            <img src="img/cata/the137prime.png" alt="The 137 - PRIME Album Cover">
+            <div class="album-info">PRIME by The 137</div>
+        </div>
+        <div class="album">
+            <img src="img/cata/dirtylaundry.png" alt="POK - Dirty Laundry Album Cover">
+            <div class="album-info">Dirty Laundry by POK</div>
+        </div>
+    </div>
+</body>
+</html>
